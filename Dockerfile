@@ -1,8 +1,8 @@
-FROM centos:latest
+FROM ubuntu:latest
 RUN yum update -y
-RUN yum install httpd -y
-RUN yum install zip -y
-RUN yum install unzip -y 
+RUN yum install -y apache2
+RUN yum install -y zip
+RUN yum install -y unzip 
 # ADD https://www.free-css.com/assets/files/free-css-templates/download/page258/beauty.zip /var/www/html/
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
 WORKDIR /var/www/html
@@ -12,5 +12,5 @@ WORKDIR /var/www/html
 RUN unzip photogenic.zip
 RUN cp -rvf photogenic/* .
 RUN rm -rf photogenic photogenic.zip 
-CMD ["/usr/sbin/httpd", "-D",  "FOREGROUND"]
+CMD ["/usr/sbin/apache2", "-D",  "FOREGROUND"]
 EXPOSE 80
