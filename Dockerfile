@@ -11,7 +11,6 @@ RUN chmod +r /var/www/html/index.html
 RUN service nginx restart
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 
-
 #FROM ubuntu:latest
 #RUN apt update
 #RUN apt install -y apache2
